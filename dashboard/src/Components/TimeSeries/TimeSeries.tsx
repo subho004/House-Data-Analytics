@@ -3,23 +3,11 @@ import ReactApexChart from "react-apexcharts";
 import { dataProps } from "../../Interface/Data.interface";
 import { Typography, styled } from "@mui/material";
 
-const style = {
-  chartContainer: {
-    margin: "20px",
-  },
-};
-const Heading = styled(Typography)`
-  font-size: 24px;
-  font-weight: bold;
-  margin: 20px;
-`;
-
 const TimeSeries: React.FC<{
   data: dataProps[];
   startDate: Date | null;
   endDate: Date | null;
 }> = ({ data, startDate, endDate }) => {
-  // Filter data based on the date range
   const filteredData = data.filter((item) => {
     const arrivalDate = new Date(
       `${item.arrival_date_year}-${item.arrival_date_month}-${item.arrival_date_day_of_month}`
@@ -31,11 +19,9 @@ const TimeSeries: React.FC<{
   });
 
   if (filteredData.length === 0) {
-    // Handle the case where there's no data to plot
     return <div>No data to display</div>;
   }
 
-  // Calculate the daily visitor totals
   const dailyDataMap = new Map();
 
   for (const item of filteredData) {
@@ -69,11 +55,11 @@ const TimeSeries: React.FC<{
       height: 350,
       zoom: {
         enabled: true,
-        type: "x", // Enable zooming on the x-axis (horizontal zoom)
-        autoScaleYaxis: true, // Automatically scale the y-axis to fit the visible data
+        type: "x",
+        autoScaleYaxis: true,
       },
       toolbar: {
-        autoSelected: "pan", // Set the default tool to pan (horizontal scrolling)
+        autoSelected: "pan",
       },
     },
     dataLabels: {
@@ -108,3 +94,15 @@ const TimeSeries: React.FC<{
 };
 
 export default TimeSeries;
+
+const style = {
+  chartContainer: {
+    margin: "20px",
+  },
+};
+
+const Heading = styled(Typography)`
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px;
+`;

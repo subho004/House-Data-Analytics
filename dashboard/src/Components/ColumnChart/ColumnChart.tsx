@@ -24,7 +24,6 @@ const ColumnChart: React.FC<{
   startDate: Date | null;
   endDate: Date | null;
 }> = ({ data, startDate, endDate }) => {
-  // Filter data based on the date range
   const filteredData = data.filter((item) => {
     const arrivalDate = new Date(
       `${item.arrival_date_year}-${item.arrival_date_month}-${item.arrival_date_day_of_month}`
@@ -36,11 +35,9 @@ const ColumnChart: React.FC<{
   });
 
   if (filteredData.length === 0) {
-    // Handle the case where there's no data to plot
     return <div>No data to display</div>;
   }
 
-  // Calculate the total visitors per country
   const countryVisitorData: CountryVisitorData = {};
 
   for (const item of filteredData) {
@@ -64,14 +61,14 @@ const ColumnChart: React.FC<{
   const chartOptions: Partial<ApexCharts.ApexOptions> = {
     chart: {
       id: "column-chart",
-      type: "bar", // Use the column chart type
+      type: "bar",
       height: 350,
     },
     dataLabels: {
-      enabled: true, // Display data labels on the columns
+      enabled: true,
     },
     xaxis: {
-      type: "category", // Set the x-axis type to category for country labels
+      type: "category",
     },
   };
 
@@ -87,7 +84,7 @@ const ColumnChart: React.FC<{
               data: countryChartData,
             },
           ]}
-          type="bar" // Use the column chart type
+          type="bar"
           height={350}
         />
       </div>

@@ -3,32 +3,18 @@ import ReactApexChart from "react-apexcharts";
 import { dataProps } from "../../Interface/Data.interface";
 import { Typography, styled } from "@mui/material";
 
-const style = {
-  chartContainer: {
-    margin: "20px",
-    width: "100%", // Set the width to 50% for each chart
-  },
-};
-
-const Heading = styled(Typography)`
-  font-size: 24px;
-  font-weight: bold;
-  margin: 20px;
-`;
-
 const Sparkline: React.FC<{
   data: dataProps[];
   startDate: Date | null;
   endDate: Date | null;
 }> = ({ data, startDate, endDate }) => {
-  // Filter data based on the date range
   const filteredData = data.filter((item) => {
     const year = item.arrival_date_year;
     const month = item.arrival_date_month;
     const day = item.arrival_date_day_of_month;
 
     if (!year || !month || !day) {
-      return false; // Skip items with missing date components
+      return false;
     }
 
     const arrivalDate = new Date(
@@ -46,15 +32,12 @@ const Sparkline: React.FC<{
   });
 
   if (filteredData.length === 0) {
-    // Handle the case where there's no data to plot
     return <div>No data to display</div>;
   }
 
-  // Create maps to store daily visitor totals for adults and children
   const dailyAdultVisitorData = new Map<string, number>();
   const dailyChildrenVisitorData = new Map<string, number>();
 
-  // Calculate the total number of visitors for each day for adults and children
   for (const item of filteredData) {
     const year = item.arrival_date_year;
     const month = item.arrival_date_month;
@@ -69,14 +52,12 @@ const Sparkline: React.FC<{
         const totalAdultVisitors = Number(item.adults);
         const totalChildrenVisitors = Number(item.children);
 
-        // For adults
         const currentAdultTotal = dailyAdultVisitorData.get(arrivalDate) || 0;
         dailyAdultVisitorData.set(
           arrivalDate,
           currentAdultTotal + totalAdultVisitors
         );
 
-        // For children
         const currentChildrenTotal =
           dailyChildrenVisitorData.get(arrivalDate) || 0;
         dailyChildrenVisitorData.set(
@@ -87,7 +68,6 @@ const Sparkline: React.FC<{
     }
   }
 
-  // Convert the maps to arrays of data points for adults and children
   const sparklineAdultData = Array.from(
     dailyAdultVisitorData,
     ([date, total]) => ({
@@ -144,3 +124,16 @@ const Sparkline: React.FC<{
 };
 
 export default Sparkline;
+
+const style = {
+  chartContainer: {
+    margin: "20px",
+    width: "100%",
+  },
+};
+
+const Heading = styled(Typography)`
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px;
+`;

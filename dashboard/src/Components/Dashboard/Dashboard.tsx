@@ -16,7 +16,6 @@ function Dashboard() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Make an API request to fetch the data
     axios.get("http://localhost:8000/api/data").then((response) => {
       setData(response.data);
     });

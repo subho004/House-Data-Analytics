@@ -7,23 +7,6 @@ import { DatePicker, DatePickerProps } from "@mui/x-date-pickers/DatePicker";
 import { DateRangePickerProps } from "../../Interface/DateRangePickerProps.interface";
 import Button from "@mui/material/Button";
 
-const Heading = styled(Typography)`
-  font-size: 24px;
-  font-weight: bold;
-  margin: 20px;
-`;
-
-const DatePickerWithMargin = styled(DatePicker)<DatePickerProps<Date | null>>`
-  margin-right: 20px;
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-`;
-
-const ResetButton = styled(Button)`
-  margin: 20px;
-`;
-
 const DateRangePicker: React.FC<DateRangePickerProps> = ({
   startDate,
   endDate,
@@ -72,3 +55,20 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
 };
 
 export default DateRangePicker;
+
+const Heading = styled(Typography)`
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px;
+`;
+
+const DatePickerWithMargin = styled(DatePicker)<DatePickerProps<Date | null>>`
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
+const ResetButton = styled(Button)`
+  margin: 20px;
+`;
