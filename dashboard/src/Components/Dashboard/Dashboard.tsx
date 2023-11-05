@@ -4,6 +4,7 @@ import { styled } from "@mui/system";
 import DateRangePicker from "../DateRangePicker/DateRangePicker";
 import { data } from "../../Data/Data";
 import TimeSeries from "../TimeSeries/TimeSeries";
+import ColumnChart from "../ColumnChart/ColumnChart";
 
 function Dashboard() {
   const [startDate, setStartDate] = useState<Date | null>(null);
@@ -18,6 +19,7 @@ function Dashboard() {
         setEndDate={setEndDate}
       />
       <TimeSeries data={data} startDate={startDate} endDate={endDate} />
+      <ColumnChart data={data} startDate={startDate} endDate={endDate} />
     </StyledContainer>
   );
 }
