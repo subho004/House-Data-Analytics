@@ -5,6 +5,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker, DatePickerProps } from "@mui/x-date-pickers/DatePicker";
 import { DateRangePickerProps } from "../../Interface/DateRangePickerProps.interface";
+import Button from "@mui/material/Button";
 
 const Heading = styled(Typography)`
   font-size: 24px;
@@ -17,6 +18,10 @@ const DatePickerWithMargin = styled(DatePicker)<DatePickerProps<Date | null>>`
   margin-left: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+`;
+
+const ResetButton = styled(Button)`
+  margin: 20px;
 `;
 
 const DateRangePicker: React.FC<DateRangePickerProps> = ({
@@ -35,6 +40,11 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     console.log("End Date:", date);
   };
 
+  const resetDateRange = () => {
+    setStartDate(null);
+    setEndDate(null);
+  };
+
   return (
     <div>
       <Heading>Select your Date Range</Heading>
@@ -49,6 +59,13 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
           value={endDate}
           onChange={handleEndDateChange as any}
         />
+        <ResetButton
+          variant="outlined"
+          color="primary"
+          onClick={resetDateRange}
+        >
+          Reset Dates
+        </ResetButton>
       </LocalizationProvider>
     </div>
   );

@@ -1,4 +1,4 @@
-export interface data {
+export interface dataProps {
   hotel: string;
   arrival_date_year: string;
   arrival_date_month: string;
