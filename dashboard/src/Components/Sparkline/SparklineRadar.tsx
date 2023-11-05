@@ -101,7 +101,8 @@ const SparklineRadar: React.FC<{
 
   return (
     <div>
-      <Heading>Sparkline Radar Chart - Total Adult Visitors per Day</Heading>
+      <Heading>Sparkline Radar Chart</Heading>
+      <Heading>Total Adult Visitors per Day</Heading>
       <div style={style.chartContainer}>
         <ReactApexChart
           options={chartOptions}

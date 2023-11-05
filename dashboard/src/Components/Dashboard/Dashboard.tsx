@@ -25,20 +25,21 @@ function Dashboard() {
       <TimeSeries data={data} startDate={startDate} endDate={endDate} />
       <ColumnChart data={data} startDate={startDate} endDate={endDate} />
       <Sparkline data={data} startDate={startDate} endDate={endDate} />
-      <SparklineRadar data={data} startDate={startDate} endDate={endDate} />
-      <SparklinePolar data={data} startDate={startDate} endDate={endDate} />
-      <SparklinePie data={data} startDate={startDate} endDate={endDate} />
+      <HorizontalContainer>
+        <SparklineRadar data={data} startDate={startDate} endDate={endDate} />
+        <SparklinePolar data={data} startDate={startDate} endDate={endDate} />
+        <SparklinePie data={data} startDate={startDate} endDate={endDate} />
+      </HorizontalContainer>
     </StyledContainer>
   );
 }
-
-export default Dashboard;
 
 const Heading = styled(Typography)`
   font-size: 24px;
   font-weight: bold;
   margin: 20px;
 `;
+
 const StyledContainer = styled("div")`
   position: absolute;
   top: 0;
@@ -50,3 +51,10 @@ const StyledContainer = styled("div")`
   scrollbar-width: thin;
   scrollbar-color: blue;
 `;
+
+const HorizontalContainer = styled("div")`
+  display: flex;
+  flex-direction: row;
+`;
+
+export default Dashboard;

@@ -100,9 +100,8 @@ const SparklinePolar: React.FC<{
 
   return (
     <div>
-      <Heading>
-        Sparkline Polar Area Chart - Total Children Visitors per Day
-      </Heading>
+      <Heading>Sparkline Polar Area Chart</Heading>
+      <Heading>Total Children Visitors per Day</Heading>
       <div style={style.chartContainer}>
         <ReactApexChart
           options={chartOptions}

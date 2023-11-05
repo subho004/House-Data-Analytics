@@ -99,7 +99,8 @@ const SparklinePie: React.FC<{
 
   return (
     <div>
-      <Heading>Sparkline Pie Chart - Total Babies Visitors per Day</Heading>
+      <Heading>Sparkline Pie Chart</Heading>
+      <Heading>Total Babies Visitors per Day</Heading>
       <div style={style.chartContainer}>
         <ReactApexChart
           options={chartOptions}

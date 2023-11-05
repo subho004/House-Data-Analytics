@@ -6,6 +6,7 @@ import { Typography, styled } from "@mui/material";
 const style = {
   chartContainer: {
     margin: "20px",
+    width: "100%", // Set the width to 50% for each chart
   },
 };
 
@@ -115,24 +116,28 @@ const Sparkline: React.FC<{
   };
 
   return (
-    <div>
-      <Heading>Sparkline Chart - Total Visitors per Day (Adults)</Heading>
-      <div style={style.chartContainer}>
-        <ReactApexChart
-          options={chartOptions}
-          series={[{ data: sparklineAdultData }]}
-          type="line"
-          height={100}
-        />
+    <div style={{ display: "flex" }}>
+      <div>
+        <div style={style.chartContainer}>
+          <Heading>Sparkline Chart - Total Visitors per Day (Adults)</Heading>
+          <ReactApexChart
+            options={chartOptions}
+            series={[{ data: sparklineAdultData }]}
+            type="line"
+            height={100}
+          />
+        </div>
       </div>
-      <Heading>Sparkline Chart - Total Visitors per Day (Children)</Heading>
-      <div style={style.chartContainer}>
-        <ReactApexChart
-          options={chartOptions}
-          series={[{ data: sparklineChildrenData }]}
-          type="line"
-          height={100}
-        />
+      <div>
+        <div style={style.chartContainer}>
+          <Heading>Sparkline Chart - Total Visitors per Day (Children)</Heading>
+          <ReactApexChart
+            options={chartOptions}
+            series={[{ data: sparklineChildrenData }]}
+            type="line"
+            height={100}
+          />
+        </div>
       </div>
     </div>
   );
