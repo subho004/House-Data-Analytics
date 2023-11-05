@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
 import DateRangePicker from "../DateRangePicker/DateRangePicker";
-import { data } from "../../Data/Data";
 import TimeSeries from "../TimeSeries/TimeSeries";
 import ColumnChart from "../ColumnChart/ColumnChart";
 import Sparkline from "../Sparkline/Sparkline";
 import SparklineRadar from "../Sparkline/SparklineRadar";
 import SparklinePolar from "../Sparkline/SparklinePolar";
 import SparklinePie from "../Sparkline/SparklinePie";
+import axios from "axios";
 
 function Dashboard() {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Make an API request to fetch the data
+    axios.get("http://localhost:8000/api/data").then((response) => {
+      setData(response.data);
+    });
+  }, []);
   return (
     <StyledContainer>
       <Heading>Dashboard</Heading>
