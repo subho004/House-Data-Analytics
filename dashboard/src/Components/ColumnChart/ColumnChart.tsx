@@ -64,25 +64,14 @@ const ColumnChart: React.FC<{
   const chartOptions: Partial<ApexCharts.ApexOptions> = {
     chart: {
       id: "column-chart",
-      type: "bar",
+      type: "bar", // Use the column chart type
       height: 350,
     },
-    plotOptions: {
-      bar: {
-        columnWidth: "50%",
-      },
-    },
     dataLabels: {
-      enabled: true,
-      style: {
-        fontSize: "12px",
-        fontWeight: "bold",
-        colors: ["#333"], // Label text color
-      },
-      offsetY: -20, // Adjust the label's vertical position
+      enabled: true, // Display data labels on the columns
     },
     xaxis: {
-      type: "category",
+      type: "category", // Set the x-axis type to category for country labels
     },
   };
 
@@ -98,7 +87,7 @@ const ColumnChart: React.FC<{
               data: countryChartData,
             },
           ]}
-          type="bar"
+          type="bar" // Use the column chart type
           height={350}
         />
       </div>

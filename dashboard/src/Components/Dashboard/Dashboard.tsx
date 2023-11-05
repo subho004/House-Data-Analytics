@@ -5,6 +5,10 @@ import DateRangePicker from "../DateRangePicker/DateRangePicker";
 import { data } from "../../Data/Data";
 import TimeSeries from "../TimeSeries/TimeSeries";
 import ColumnChart from "../ColumnChart/ColumnChart";
+import Sparkline from "../Sparkline/Sparkline";
+import SparklineRadar from "../Sparkline/SparklineRadar";
+import SparklinePolar from "../Sparkline/SparklinePolar";
+import SparklinePie from "../Sparkline/SparklinePie";
 
 function Dashboard() {
   const [startDate, setStartDate] = useState<Date | null>(null);
@@ -20,6 +24,10 @@ function Dashboard() {
       />
       <TimeSeries data={data} startDate={startDate} endDate={endDate} />
       <ColumnChart data={data} startDate={startDate} endDate={endDate} />
+      <Sparkline data={data} startDate={startDate} endDate={endDate} />
+      <SparklineRadar data={data} startDate={startDate} endDate={endDate} />
+      <SparklinePolar data={data} startDate={startDate} endDate={endDate} />
+      <SparklinePie data={data} startDate={startDate} endDate={endDate} />
     </StyledContainer>
   );
 }
