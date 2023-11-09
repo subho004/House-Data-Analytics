@@ -26,7 +26,7 @@ The dataset used in this project contains 1,000 records of hotel bookings with t
 - **babies**: The number of babies for the booking.
 - **country**: The country from which the travelers are from.
 
-The data is sourced from the [hotel_bookings_1000.csv](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/caaad5c3-4460-4638-a3a6-3cb63b30c560/hotel_bookings_1000.csv) file.
+The data is sourced from the [hotel_bookings_1000.csv](https://github.com/subho004/House-Data-Analytics/blob/main/Json/hotel_bookings_1000.csv) file.
 
 ## ScreenShots
 
